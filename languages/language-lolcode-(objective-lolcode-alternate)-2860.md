@@ -1,0 +1,33 @@
+
+## Language LOLCODE (Objective LOLCODE alternate) ##
+---
+- Author: SLM F NSQX
+- Date: 03/30/12
+- Info: http
+- Score:  (2.67 in 3 votes)
+- URL: n/a
+- Original URL: http://www.99-bottles-of-beer.net/language-lolcode-(objective-lolcode-alternate)-2860.html
+---
+
+```HAI
+CAN HAZ STDIO?
+CAN HAZ STDLIB?
+I HAZ A BOTTLZ ITZ 99
+IM IN YR LUP
+	CAN I HAZ BTS A BOTTLZ AZ STRNG?
+	VISIBLE BTS + " BOTTLZ F BEER ON TEH WAL"
+	VISIBLE BTS + " BOTTLZ F BEER ON TEH WAL"
+	VISIBLE "TAK UN DAWN PAS IT RAWND"
+	I HAZ A BOTTLZ ITZ BOTTLZ - 1
+	IZ BOTTLZ BIGR DAN 0?
+		YARLY
+			CAN I HAZ BTS A BOTTLZ AZ STRNG?
+			VISIBLE BTS + "BOTTLZ F BEER ON TEH WAL"
+			VISIBLE ""
+			KTHX
+		NOWAI
+			VISIBLE "NO MOAR BOTTLZ F BEER ON TEH WAL"
+			BTW TO XIT TEH CNDITUNL N TEH LUP I MST KTHX TWCE
+			KTHX TWCE
+IM OUTTA YR LUP
+KTHXBYE```

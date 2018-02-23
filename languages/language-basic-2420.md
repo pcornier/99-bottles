@@ -1,0 +1,70 @@
+
+## Language basic ##
+---
+- Author: barrym
+- Date: 06/10/10
+- Info: n/a
+- Score:  (3.00 in 23 votes)
+- URL: n/a
+- Original URL: http://www.99-bottles-of-beer.net/language-basic-2420.html
+---
+
+```0 '----------------------------
+1 'BEER SONG FOR TRS-80 COLOR
+2 'COMPUTER BY BARRYM 2010-06-05
+3 'PRINTS COMPLETE CORRECT SONG
+4 'AS CLEANLY AS POSSIBLE ON A
+5 '32 COLUMN UPPER-CASE SCREEN
+6 'THANKS TO DAVID KEIL FOR HIS
+7 'EXCELLENT EMULATOR!!
+8 '----------------------------
+9 CLEAR 1000
+10 M=99:'MAX NUMBER OF BEERS
+11 S=32:'MAX PHYSICAL LINE WIDTH
+12 'X IS THE BEER COUNTER
+13 'A$ IS THE CURRENT SENTENCE
+14 '---------------------------
+15 CLS:GOSUB 20:END
+16 '---------------------------
+17 'PRINT ENTIRE SONG EXCEPT
+18 'FOR LAST SENTENCE
+19 '---------------------------
+20 FOR X=M TO 0 STEP -1
+25 IF X<>M THEN A$="TAKE ONE DOWN AND PASS IT AROUND, ":GOSUB 50
+30 A$="":W=-1:GOSUB 50
+35 A$=A$+", ":GOSUB 50:NEXT X
+36 '---------------------------
+37 'PRINT LAST SENTENCE AND
+38 'FALL THROUGH
+39 '---------------------------
+40 A$="GO TO THE STORE AND BUY SOME MORE, ":X=M
+41 '---------------------------
+42 'ADD APPROPRIATE SUB-PHRASE
+43 'TO THE CURRENT SENTENCE AND
+44 'PRINT IT IF IT'S COMPLETE,
+45 'USING W VAR FOR GUIDANCE:
+46 'W=-1: "... ON THE WALL"
+47 '   0: "... OF BEER."
+48 '   1: "... ON THE WALL."
+49 '--------------------------
+50 IF X THEN A$=A$+MID$(STR$(X),2) ELSE A$=A$+"NO MORE"
+55 A$=A$+" BOTTLE":IF X<>1 THEN A$=A$+"S"
+60 A$=A$+" OF BEER":IF W THEN A$=A$+" ON THE WALL"
+65 W=W+1:IF W THEN A$=A$+"." ELSE 99
+69 '--------------------------
+70 'PRINT A COMPLETE SENTENCE
+71 'ONE WORD AT A TIME, TRYING
+72 'NOT TO BREAK ANY WORDS
+73 'AGAINST THE RIGHT MARGIN
+74 'Q IS THE STRING INDEX
+75 'L IS THE LENGTH OF THE 
+76 ' REMAINING SENTENCE
+77 'A$ IS THE SENTENCE AND IS
+78 ' CONSUMED BY THIS ROUTINE
+79 '--------------------------
+80 Q=1:L=LEN(A$):IF L=0 THEN 99
+85 Q=Q+1:IF MID$(A$,Q,1) <> " " AND Q<L THEN 85
+90 IF S-Q<POS(0) THEN PRINT
+95 PRINT LEFT$(A$,Q-1);
+97 A$=MID$(A$,Q):GOTO 80
+99 PRINT:RETURN```

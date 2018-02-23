@@ -1,0 +1,57 @@
+
+## Language D ##
+---
+- Author: Don Clugston
+- Date: 07/11/06
+- Info: http
+- Score:  (3.02 in 258 votes)
+- URL: n/a
+- Original URL: http://www.99-bottles-of-beer.net/language-d-1212.html
+---
+
+```// Displays the "99 bottles of beer" song at compile time,
+// using the template metaprograming facilities of D. 
+// No executable is generated. No libraries are used.
+// Illustrates template default values, template string value parameters,
+// compile-time concatenation of constant strings, static if.
+
+template decimaldigit(int n) {
+    const char [] decimaldigit = "0123456789"[n..n+1];
+}
+
+template itoa(ulong n)
+{
+    static if ( n < 10L )
+	const char [] itoa = decimaldigit!(n);
+    else
+	const char [] itoa = itoa!( n / 10L ) ~ decimaldigit!( n % 10L );
+}
+
+template showHowMany(int n, char [] where, bool needcapital = false)
+{
+  static if ( n > 1 ) 
+      const char [] showHowMany = itoa!(n) ~ " bottles of beer" ~ where ~ \n;
+  else static if ( n == 1 )
+      const char [] showHowMany = "1 bottle of beer" ~ where ~ \n;
+  else static if ( needcapital )
+      const char [] showHowMany = "No more bottles of beer" ~ where ~ \n;
+  else 
+      const char [] showHowMany = "no more bottles of beer" ~ where ~ \n;
+}
+
+template beer(int maxbeers, int n = maxbeers)
+{
+  static if ( n > 0 )
+    const char [] beer = showHowMany!(n, " on the wall,", true)
+        ~ showHowMany!(n, ".")
+        ~ "Take one down and pass it around, " \n 
+        ~ showHowMany!( n - 1 , " on the wall.") 
+        ~ \n ~ beer!(maxbeers, n - 1); // recurse for subsequent verses.
+  else
+    const char [] beer = showHowMany!(n, " on the wall,", true)
+        ~ showHowMany!(n, ".")
+        ~ "Go to the store and buy some more, " \n
+        ~ showHowMany!( maxbeers, " on the wall.");
+}
+
+pragma(msg, beer!(99));```

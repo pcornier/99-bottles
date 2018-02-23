@@ -1,0 +1,45 @@
+
+## Language CDC NOS CCL ##
+---
+- Author: Valerie Harris
+- Date: 04/20/05
+- Info: n/a
+- Score:  (3.00 in 17 votes)
+- URL: n/a
+- Original URL: http://www.99-bottles-of-beer.net/language-cdc-nos-ccl-123.html
+---
+
+```Contributed by Valerie Harris (valerie@grin.net) with a little help from my friends
+CDC = Control Data Corporation
+NOS = Network Operating System
+CCL = Cyber Control Language
+It's the operating system control language of the cyber machine.
+
+.PROC,DRV99*I,
+COUNT = (*N=10,*F).
+.HELP.
+THIS PROC READS ARGUMENT COUNT, AND INITIALIZES
+REGISTER COUNTER TO THAT VALUE.
+THEN THIS PROC LOOPS FOR THAT MANY COUNTS, DECREMENTING
+THE REGISTER COUNTER EVERY LOOP.  DURING THE LOOP THIS PROC
+CALLS PRN99 WHICH PRINTS MESSAGE FOR THAT COUNT
+.HELP,COUNT.
+THIS IS THE INITITAL COUNT, THE COUNT FROM WHICH TO DECREMENT.
+.ENDHELP
+.IF,NUM(COUNT),QUIT.
+SET,R1=COUNT.
+SET,R2=0.
+WHILE,R1.GT.R2,LOOP.
+BEGIN,PRN99,DRV99,R1.
+SET,R1=R1-1.
+ENDW,LOOP.
+NOTE./NO BOTTLES OF BEER ON THE WALL
+REVERT,NOLIST.
+.ENDIF,QUIT.
+REVERT,ABORT.  NONNUMERIC PASSES
+.PROC,PRN99*I,COUNT=(*N=10,*F).
+.SET,K9=STRD(COUNT).
+NOTE./K9 BOTTLES OF BEER ON THE WALL
+NOTE./K9 BOTTLES OF BEER
+NOTE./TAKE ONE DOWN, AND PASS IT AROUND/
+REVERT,NOLIST.```

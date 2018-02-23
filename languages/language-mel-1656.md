@@ -1,0 +1,34 @@
+
+## Language mel ##
+---
+- Author: laurent taillefer
+- Date: 01/01/08
+- Info: http
+- Score:  (3.00 in 2 votes)
+- URL: n/a
+- Original URL: http://www.99-bottles-of-beer.net/language-mel-1656.html
+---
+
+```string $temp0[] , $temp1[] , $text0 , $text1;
+string $theGrp = `group -em`;
+for ($i = 99 ; $i > -1 ; $i--)
+{
+	$text0 = string($i) + " bottles of beer on the wall, " + string($i) +" bottles of beer.";
+	$text1 = "Take one down and pass it around, " + string($i-1) +" bottles of beer on the wall.";
+	if ($i == 1)
+	{
+		$text0 = string($i) + " bottle of beer on the wall, " + string($i) +" bottle of beer.";
+		$text1 = "Take one down and pass it around, no more bottles of beer on the wall.";
+	}
+	if ($i == 0)
+	{
+		$text0 = "No more bottles of beer on the wall, no more bottles of beer. ";
+		$text1 = "Go to the store and buy some more, 99 bottles of beer on the wall.";
+	}
+	$temp0 = `textCurves -ch 0 -f "Times New Roman|h-13|w400|c0" -t ($text0)`;
+	$temp1 = `textCurves -ch 0 -f "Times New Roman|h-13|w400|c0" -t ($text1)`;
+	setAttr ($temp0[0] + ".ty") (($i * 8) + 3);
+	setAttr ($temp1[0] + ".ty") ($i * 8);
+	parent $temp0[0] $theGrp ;
+	parent $temp1[0] $theGrp ;
+}```

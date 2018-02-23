@@ -1,0 +1,14 @@
+{
+  "name": "99-bottles",
+  "version": "1.0.0",
+  "description": "A snapshot of http://99-bottles-of-beer.net",
+  "main": "spider.js",
+  "dependencies": {
+    "node-spider": "^1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": ""
+}

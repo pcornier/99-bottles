@@ -1,0 +1,63 @@
+
+## Language HaPyLi ##
+---
+- Author: Marinus Oosters
+- Date: 11/27/10
+- Info: http
+- Score:  (3.63 in 19 votes)
+- URL: n/a
+- Original URL: http://www.99-bottles-of-beer.net/language-hapyli-2556.html
+---
+
+```; 99 bottles of beer in HaPyLi
+; this compiles to Whitespace!
+
+import "stdlib/base.hpl"
+
+def printBottles(bottles) =
+   (if (== bottles 0)
+       (print-string "No more bottles ")
+       (if (== bottles 1)
+           (print-string "1 bottle ")
+           (if (== bottles -1)
+               (print-string "99 bottles ")
+               (do
+                   (print-number bottles)
+                   (print-string " bottles ")))))
+
+def line1(bottles) = 
+   (do
+       (printBottles bottles)
+       (print-string "of beer on the wall,\n"))
+
+def line2(bottles) = 
+   (do
+       (printBottles bottles)
+       (print-string "of beer,\n"))
+
+def line3(bottles) = 
+   (print-string
+       (if (== bottles 0)
+           "Go to the store and buy some more,\n"
+           "Take one down and pass it around,\n"))
+
+def line4(bottles) =
+   (do
+       (printBottles bottles)
+       (print-string "of beer on the wall.\n\n"))
+
+def verse(bottles) =
+   (do 
+       (line1 bottles)
+       (line2 bottles)
+       (line3 bottles)
+       (line4 (- bottles 1)))
+
+def verses(bottles) =
+   (do
+       (verse bottles)
+       (if (> bottles 0)
+           (verses (- bottles 1))
+           0))
+
+def main() = (verses 99)```
