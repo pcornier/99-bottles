@@ -25,4 +25,8 @@ Procedure bottles()
 	Message("No more bottles of beer...");
 	Message("Go to the story and buy some more...");
 	Message("99 bottles of beer.");
+es of beer.");
 EndProcedure```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEyODAxMTg4NTJdfQ==
+-->
